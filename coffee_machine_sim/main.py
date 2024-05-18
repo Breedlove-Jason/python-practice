@@ -2,55 +2,58 @@ from menu import MENU, resources
 
 machine_on = True
 
-
-print(f"water: ${water} milk: ${milk} coffee ${coffee}")
-coffee_machine = input("What would you like? (esp/lat/cap): ").lower()
-while machine_on:
-    if coffee_machine == "off":
-        print("Machine is off")
-        machine_on = False
-
-    elif coffee_machine == "report":
-        print(f"Water: {resources['water']}ml")
-        print(f"Milk: {resources['milk']}ml")
-        print(f"Coffee: {resources['coffee']}g")
-        print(f"Money: ${resources['money']}")
+coffee = input("What would you like? (esp/lat/cap): ").lower()
 
 
 def coffee_resources(coffee_type):
+    # initialized values: "water": 300, "milk": 200, "coffee": 100,
     water = resources["water"]
     milk = resources["milk"]
-    coffee = resources["coffee"]
+    coffee_strength = resources["coffee"]
 
     if coffee_type == "esp":
         water -= 50
-        coffee -= 18
-        return water, coffee
+        coffee_strength -= 18
+        return water, coffee_strength
     elif coffee_type == "lat":
         water -= 200
         milk -= 150
-        coffee -= 24
-        return water, milk, coffee
+        coffee_strength -= 24
+        return water, milk, coffee_strength
     elif coffee_type == "cap":
         water -= 250
         milk -= 100
-        coffee -= 24
-        return water, milk, coffee
+        coffee_strength -= 24
+        return water, milk, coffee_strength
 
 
-def choose_coffee(coffee):
-    if coffee == "esp":
-        print("espresso")
-    elif coffee == "lat":
-        print("latte")
-    elif coffee == "cap":
-        print("cappuccino")
+def coins(coffee_type):
+    if coffee_type == "esp":
+        coffee_type = 'espresso'
+    elif coffee_type == "lat":
+        coffee_type = 'latte'
+    elif coffee_type == "cap":
+        coffee_type = 'cappuccino'
+    coffee_cost = MENU[coffee_type]["cost"]
+
+    print(f"Your total is {coffee_cost}.")
+    print("Please insert coins.")
+    quarters = int(input("How many quarters?: "))
+    dimes = int(input("How many dimes?: "))
+    nickels = int(input("How many nickels?: "))
+    pennies = int(input("How many pennies?: "))
+
+    total = (quarters * 0.25) + (dimes * 0.10) + (nickels * 0.05) + (pennies * 0.01)
+    change = round(total - coffee_cost, 2)
+
+    if coffee_cost > total:
+        print("Sorry, that's not enough money. Money refunded.")
+        return
+    elif coffee_cost < total:
+        print(f"Here is your change: ${change:.2f}")
+        return change
 
 
-def resource_values(water_ml, milk_ml, coffee_grams):
-    print(f"Water: {water_ml}ml")
-    print(f"Milk: {milk_ml}ml")
-    print(f"Coffee: {coffee_grams}g")
-
-
-choose_coffee(coffee_choice)
+# drink = coffee_resources(coffee)
+# print(drink)
+print(coins(coffee))
