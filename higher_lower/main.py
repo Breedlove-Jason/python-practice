@@ -9,6 +9,7 @@ print(logo)
 # Initialize the score
 score = 0
 
+
 # Function to print the comparison data
 def print_compare(choice_1, choice_2):
     # Print choice A details
@@ -21,6 +22,7 @@ def print_compare(choice_1, choice_2):
     print(
         f"Against B: {choice_2['name']}, a {choice_2['description']}, from {choice_2['country']}\n"
     )
+
 
 # Function to calculate the score
 def calc_score(choice_1, choice_2, score):
@@ -38,6 +40,7 @@ def calc_score(choice_1, choice_2, score):
             print(f"Sorry, that's wrong! Final score: {score}")
             break
 
+
 # Function to check if the user wants to play again
 def play_again(is_correct):
     # If the user was correct, return True
@@ -52,6 +55,7 @@ def play_again(is_correct):
         return True
     else:
         return False
+
 
 # Start the game
 play = True
