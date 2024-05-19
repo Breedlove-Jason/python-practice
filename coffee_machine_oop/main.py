@@ -6,8 +6,8 @@ def check_resources():
         if resources[resource] < 0:
             print(f"Sorry there is not enough {resource}")
             return False
-        else:
-            return True
+
+    return True
 
 
 class CoffeeMachine:
@@ -22,20 +22,32 @@ class CoffeeMachine:
         check_resources()
 
     def make_coffee(self, user_input):
-        if self.user_input == "esp":
+        if self.user_input == "esp" and check_resources():
             self.water -= 50
             self.coffee_beans -= 18
-            print("Here is your espresso")
-        elif user_input == "lat":
+            self.process_coins(self.user_input)
+            if self.money < self.cost:
+                print("Sorry that's not enough money. Money refunded.")
+                return
+            print("Here is your espresso. Enjoy!")
+        elif user_input == "lat" and check_resources():
             self.water -= 200
             self.milk -= 150
             self.coffee_beans -= 24
-            print("Here is your latte")
-        elif user_input == "cap":
+            self.process_coins(self.user_input)
+            if self.money < self.cost:
+                print("Sorry that's not enough money. Money refunded.")
+                return
+            print("Here is your latte. Enjoy!")
+        elif user_input == "cap" and check_resources():
             self.water -= 250
             self.milk -= 100
             self.coffee_beans -= 24
-            print("Here is your cappuccino")
+            self.process_coins(self.user_input)
+            if self.money < self.cost:
+                print("Sorry that's not enough money. Money refunded.")
+                return
+            print("Here is your cappuccino. Enjoy!")
 
     def process_coins(self, user_input):
         print("Please insert coins")
@@ -52,14 +64,15 @@ class CoffeeMachine:
         elif user_input == "cap":
             self.cost = 3.0
 
-        if self.money < self.cost:
-            print("Sorry that's not enough money. Money refunded.")
-            return False
-        else:
-            change = self.money - self.cost
-            print(f"Here is ${change} in change.")
-            self.money = 0
-            return True
+        if self.money >= self.cost:
+            self.calculate_change()
+
+        return True
+
+    def calculate_change(self):
+        change = round(self.money - self.cost)
+        print(f"Here is ${change} in change.")
+        self.money = 0
 
     def machine_off(self, user_input):
         if user_input == "off":
@@ -72,13 +85,13 @@ class CoffeeMachine:
             print(f"Milk: {self.milk}ml")
             print(f"Coffee Beans: {self.coffee_beans}g")
 
-        while self.machine_on:
-            self.user_input = input("What would you like? (esp/lat/cap): ").lower()
-            # self.report(self.user_input)
-            # check_resources()
-            self.make_coffee(self.user_input)
-            self.process_coins(self.user_input)
-            # self.machine_off(self.user_input)
-
 
 coffee_machine = CoffeeMachine()
+while coffee_machine.machine_on:
+    check_resources()
+    coffee_machine.report(coffee_machine.user_input)
+    if coffee_machine.machine_on is False:
+        break
+    coffee_machine.machine_off(coffee_machine.user_input)
+    coffee_machine.make_coffee(coffee_machine.user_input)
+    coffee_machine.user_input = input("What would you like? (esp/lat/cap): ").lower()
