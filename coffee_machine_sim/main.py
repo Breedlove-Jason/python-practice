@@ -3,28 +3,35 @@ from menu import MENU, resources
 machine_on = True
 
 coffee = input("What would you like? (esp/lat/cap): ").lower()
+water = resources["water"]
+milk = resources["milk"]
+coffee_strength = resources["coffee"]
 
+def print_report(water, milk, coffee_strength):
+    print(f"Water: {water}ml")
+    print(f"Milk: {milk}ml")
+    print(f"Coffee: {coffee_strength}g")
 
-def coffee_resources(coffee_type):
+def make_drinks(coffee_type, add_water, add_milk, add_coffee):
     # initialized values: "water": 300, "milk": 200, "coffee": 100,
-    water = resources["water"]
-    milk = resources["milk"]
-    coffee_strength = resources["coffee"]
+    # water = resources["water"]
+    # milk = resources["milk"]
+    # coffee_strength = resources["coffee"]
 
     if coffee_type == "esp":
-        water -= 50
-        coffee_strength -= 18
-        return water, coffee_strength
+        add_water -= 50
+        add_coffee -= 18
+        return add_water, add_coffee
     elif coffee_type == "lat":
-        water -= 200
-        milk -= 150
-        coffee_strength -= 24
-        return water, milk, coffee_strength
+        add_water -= 200
+        add_milk -= 150
+        add_coffee -= 24
+        return add_water, add_milk, add_coffee
     elif coffee_type == "cap":
-        water -= 250
-        milk -= 100
-        coffee_strength -= 24
-        return water, milk, coffee_strength
+        add_water -= 250
+        add_milk -= 100
+        add_coffee -= 24
+        return add_water, add_milk, add_coffee
 
 
 def coins(coffee_type):
@@ -57,3 +64,5 @@ def coins(coffee_type):
 # drink = coffee_resources(coffee)
 # print(drink)
 print(coins(coffee))
+print(make_drinks(coffee, water, milk, coffee_strength))
+print_report(water, milk, coffee_strength)
