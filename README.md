@@ -1,3 +1,11 @@
+
+### Update to the Master `README.md`
+
+Update the main `README.md` file in the root of your repository to include a section for the Coffee Machine project.
+
+#### Updated Main `README.md`
+
+
 # Python Practice Assignments
 
 Welcome to the Python Practice Assignments repository. This repository is a collection of various Python projects, including practice assignments, games, scripts, utilities, websites, data science projects, and programs. Each project is organized into its own directory and contains all the necessary files to run and understand the project.
@@ -7,6 +15,7 @@ Welcome to the Python Practice Assignments repository. This repository is a coll
 - [About](#about)
 - [Projects](#projects)
   - [Higher Lower Game](#higher-lower-game)
+  - [Coffee Machine](#coffee-machine)
   - [More Projects](#more-projects)
 
 ## About
@@ -22,6 +31,15 @@ This repository is designed to help track progress and showcase various Python p
   - `main.py`: The main script for the game.
   - `README.md`: Detailed information about the game.
 - **Project Directory:** [Higher Lower Game](higher-lower-game/)
+
+### Coffee Machine
+
+- **Description:** A simulation of a coffee machine that can make espresso, latte, and cappuccino.
+- **Files:**
+  - `main.py`: The main script for the coffee machine simulation.
+  - `menu.py`: Contains the resources used by the coffee machine.
+  - `README.md`: Detailed information about the coffee machine project.
+- **Project Directory:** [Coffee Machine](coffee-machine/)
 
 ### More Projects
 
@@ -42,7 +60,4 @@ To run any of the projects, navigate to the project's directory and execute the 
 ```bash
 cd higher-lower-game
 python main.py
-
-Make sure you have Python installed on your system. For some projects, additional dependencies might be required. Refer to the README.md file within each project directory for specific instructions.o
-
-Feel free to explore the projects, suggest improvements, or contribute new projects. Happy coding!
+```
