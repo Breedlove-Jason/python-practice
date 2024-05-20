@@ -68,3 +68,4 @@ To run any of the projects, navigate to the project's directory and execute the 
 cd higher-lower-game
 python main.py
 ```
+
