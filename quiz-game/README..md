@@ -28,14 +28,14 @@ cd quiz-game
 python main.py
 ```
 
-
+```bash
 quiz-game/
 ├── main.py
 ├── quiz_brain.py
 ├── question_model.py
 ├── data.py
 └── README.md
-
+```
 
 Choose your difficulty level (easy, medium, hard): medium
 Q.1: The HTML5 standard was published in 2014. (True/False): true
