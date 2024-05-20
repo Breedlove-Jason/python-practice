@@ -1,8 +1,3 @@
-
-### Update to the Master `README.md`
-
-Update the main `README.md` file in the root of your repository to include a section for the Coffee Machine project.
-
 #### Updated Main `README.md`
 
 
@@ -16,6 +11,7 @@ Welcome to the Python Practice Assignments repository. This repository is a coll
 - [Projects](#projects)
   - [Higher Lower Game](#higher-lower-game)
   - [Coffee Machine](#coffee-machine)
+  - [Quiz Game](#quiz-game)
   - [More Projects](#more-projects)
 
 ## About
@@ -40,6 +36,17 @@ This repository is designed to help track progress and showcase various Python p
   - `menu.py`: Contains the resources used by the coffee machine.
   - `README.md`: Detailed information about the coffee machine project.
 - **Project Directory:** [Coffee Machine](coffee-machine/)
+
+### Quiz Game
+
+- **Description:** A trivia game that fetches questions from the Open Trivia Database API based on the user's chosen difficulty level.
+- **Files:**
+  - `main.py`: The main script that runs the game.
+  - `quiz_brain.py`: Contains the `QuizBrain` class that handles the quiz logic.
+  - `question_model.py`: Contains the `Question` class that represents a quiz question.
+  - `data.py`: Fetches and processes the question data from the API.
+  - `README.md`: Detailed information about the quiz game project.
+- **Project Directory:** [Quiz Game](quiz-game/)
 
 ### More Projects
 
