@@ -1,3 +1,6 @@
+
+### Update to the Master `README.md`
+
 #### Updated Main `README.md`
 
 
@@ -12,6 +15,7 @@ Welcome to the Python Practice Assignments repository. This repository is a coll
   - [Higher Lower Game](#higher-lower-game)
   - [Coffee Machine](#coffee-machine)
   - [Quiz Game](#quiz-game)
+  - [Hirst Painting](#hirst-painting)
   - [More Projects](#more-projects)
 
 ## About
@@ -47,6 +51,15 @@ This repository is designed to help track progress and showcase various Python p
   - `data.py`: Fetches and processes the question data from the API.
   - `README.md`: Detailed information about the quiz game project.
 - **Project Directory:** [Quiz Game](quiz-game/)
+
+### Hirst Painting
+
+- **Description:** Uses the Turtle graphics library to create a painting inspired by Damien Hirst.
+- **Files:**
+  - `main.py`: The main script that runs the painting program.
+  - `hirst_painting.jpg`: The image from which colors are extracted.
+  - `README.md`: Detailed information about the Hirst Painting project.
+- **Project Directory:** [Hirst Painting](hirst-painting/)
 
 ### More Projects
 
