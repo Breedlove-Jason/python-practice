@@ -1,8 +1,6 @@
 
 ### Update to the Master `README.md`
 
-#### Updated Main `README.md`
-
 
 # Python Practice Assignments
 
