@@ -1,9 +1,6 @@
-
-### Update to the Master `README.md`
-
 #### Updated Main `README.md`
 
-
+```markdown
 # Python Practice Assignments
 
 Welcome to the Python Practice Assignments repository. This repository is a collection of various Python projects, including practice assignments, games, scripts, utilities, websites, data science projects, and programs. Each project is organized into its own directory and contains all the necessary files to run and understand the project.
@@ -16,6 +13,7 @@ Welcome to the Python Practice Assignments repository. This repository is a coll
   - [Coffee Machine](#coffee-machine)
   - [Quiz Game](#quiz-game)
   - [Hirst Painting](#hirst-painting)
+  - [Turtle Race](#turtle-race)
   - [More Projects](#more-projects)
 
 ## About
@@ -61,6 +59,14 @@ This repository is designed to help track progress and showcase various Python p
   - `README.md`: Detailed information about the Hirst Painting project.
 - **Project Directory:** [Hirst Painting](hirst-painting/)
 
+### Turtle Race
+
+- **Description:** A simple turtle race game using the Turtle graphics library.
+- **Files:**
+  - `main.py`: The main script that runs the turtle race.
+  - `README.md`: Detailed information about the Turtle Race project.
+- **Project Directory:** [Turtle Race](turtle-race/)
+
 ### More Projects
 
 - As more projects are added, they will be listed here in the same format.
@@ -80,5 +86,5 @@ To run any of the projects, navigate to the project's directory and execute the 
 ```bash
 cd higher-lower-game
 python main.py
-```
 
+```
