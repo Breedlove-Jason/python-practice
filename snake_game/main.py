@@ -1,15 +1,27 @@
 from turtle import Turtle, Screen
+from random import randint
 
 snake_body = []
 
 
 def turtle_maker(x, y):
+    """Creates a new turtle segment at the given x, y position."""
     new_turtle = Turtle()
     new_turtle.shape("square")
     new_turtle.color("white")
     new_turtle.penup()
     new_turtle.goto(x, y)
     return new_turtle
+
+
+def food_maker():
+    """Creates a new food turtle at a random position."""
+    food = Turtle()
+    food.shape("circle")
+    food.color("red")
+    food.penup()
+    food.goto(randint(-280, 280), randint(-280, 280))
+    return food
 
 
 def move_up():
@@ -33,45 +45,56 @@ def move_right():
 
 
 def move_snake():
+    """Moves the snake forward by updating the position of each segment."""
     screen.listen()
     screen.onkey(move_up, "Up")
     screen.onkey(move_down, "Down")
     screen.onkey(move_left, "Left")
     screen.onkey(move_right, "Right")
-    for turtle_num in range(len(snake_body) - 1, 0, -1):
-        new_x = snake_body[turtle_num - 1].xcor()
-        new_y = snake_body[turtle_num - 1].ycor()
-        snake_body[turtle_num].goto(new_x, new_y)
 
+    # Move the segments from tail to head
+    for i in range(len(snake_body) - 1, 0, -1):
+        x = snake_body[i - 1].xcor()
+        y = snake_body[i - 1].ycor()
+        snake_body[i].goto(x, y)
+
+    # Move the head forward
     snake_body[0].forward(20)
 
 
-def game_over():
-    global game_is_on
-    # Detect collision with wall
-    if (snake_body[0].xcor() > 280 or snake_body[0].xcor() < -280 or snake_body[0].ycor() > 280
-            or snake_body[0].ycor() < -280):
-        game_is_on = False
-
-    game_is_on = False
+def check_collision():
+    """Checks for collision with the walls."""
+    head = snake_body[0]
+    if head.xcor() > 280 or head.xcor() < -280 or head.ycor() > 280 or head.ycor() < -280:
+        return True
+    return False
 
 
+def game_loop():
+    """Main game loop."""
+    if not check_collision():
+        move_snake()
+        screen.update()
+        screen.ontimer(game_loop, 100)
+    else:
+        print("Game Over!")
+        screen.bye()
+
+
+# Setup the screen
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake Game")
 screen.tracer(0)
 
-start_positions = [(0, 0), (-20, 0), (-40, 0)]  # For 3 initial turtle objects
+# Create initial snake body
+start_positions = [(0, 0), (-20, 0), (-40, 0)]
 for position in start_positions:
     snake_body.append(turtle_maker(*position))
 
+# Start the game
 game_is_on = True
-while game_is_on:
-    screen.update()
-    move_snake()
-    game_over()
+game_loop()
 
-    screen.update()
-screen.update()
 screen.exitonclick()
