@@ -1,7 +1,6 @@
 
 #### Master `README.md`
 
-```markdown
 # Python Practice Assignments
 
 Welcome to the Python Practice Assignments repository. This repository is a collection of various Python projects, including practice assignments, games, scripts, utilities, websites, data science projects, and programs. Each project is organized into its own directory and contains all the necessary files to run and understand the project.
