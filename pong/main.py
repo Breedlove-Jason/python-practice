@@ -40,8 +40,6 @@ def move_down(paddle):
     y -= 20
     paddle.sety(y)
 
-    from turtle import Turtle
-
 
 def update_score():
     scoreboard = Turtle()
@@ -62,12 +60,36 @@ def draw_center_line():
     center_line.penup()
     center_line.goto(0, 300)
     center_line.setheading(270)
-    for _ in range(30):
+    for _ in range(15):
         center_line.pendown()
         center_line.forward(20)
         center_line.penup()
         center_line.forward(20)
     screen.update()
+
+
+def move_ball():
+    x = draw_ball.xcor()
+    y = draw_ball.ycor()
+    x += 1
+    y += 1
+    draw_ball.goto(x, y)
+    screen.update()
+
+
+direction = 1  # 1 for up, -1 for down
+
+
+def computer_move_paddle(paddle):
+    global direction
+    y = paddle.ycor()
+    y += direction
+    paddle.sety(y)
+    screen.update()
+    if paddle.ycor() >= 250:
+        direction = -1
+    elif paddle.ycor() <= -250:
+        direction = 1
 
 
 update_score()
@@ -76,9 +98,13 @@ create_paddle(paddle1, 280, 0)
 create_paddle(paddle2, -280, 0)
 screen.update()
 
-# while True:
-#     screen.onkeypress(lambda: move_up(paddle2), "Up")
-#     screen.onkeypress(lambda: move_down(paddle2), "Down")
-#     screen.update()
+while True:
+    screen.onkeypress(lambda: move_up(paddle2), "Up")
+    screen.onkeypress(lambda: move_down(paddle2), "Down")
+    screen.update()
+    move_ball()
+    screen.update()
+    computer_move_paddle(paddle1)
+    screen.update()
 screen.mainloop()
 screen.exitonclick()
