@@ -14,11 +14,11 @@ screen.tracer(0)
 screen.title("Pong Game")
 screen.listen()
 
-draw_ball = Turtle()
-draw_ball.shape("square")
-draw_ball.color("white")
-draw_ball.penup()
-draw_ball.goto(0, 0)
+ball = Turtle()
+ball.shape("circle")
+ball.color("white")
+ball.penup()
+ball.goto(0, 0)
 
 
 def create_paddle(paddle, x, y):
@@ -41,15 +41,18 @@ def move_down(paddle):
     paddle.sety(y)
 
 
-def update_score():
-    scoreboard = Turtle()
-    scoreboard.color("white")
-    scoreboard.penup()
-    scoreboard.hideturtle()
-    scoreboard.goto(0, 260)
+# create scoreboard outside the function
+scoreboard = Turtle()
+scoreboard.color("white")
+scoreboard.penup()
+scoreboard.hideturtle()
+scoreboard.goto(0, 260)
 
+
+def update_score():
+    global scoreboard
     scoreboard.clear()
-    scoreboard.write("{}  {}".format(score1, score2), align="center",
+    scoreboard.write(f"{score1} {score2}", align="center",
                      font=("Courier", 24, "normal"))
     screen.update()
 
@@ -68,16 +71,40 @@ def draw_center_line():
     screen.update()
 
 
-def move_ball():
-    x = draw_ball.xcor()
-    y = draw_ball.ycor()
-    x += 1
-    y += 1
-    draw_ball.goto(x, y)
-    screen.update()
-
-
 direction = 1  # 1 for up, -1 for down
+direction_x = random.choice([1, -1])
+direction_y = random.choice([1, -1])
+
+
+def move_ball(ball, paddle1, paddle2):
+    global direction_x, direction_y, score1, score2
+    x = ball.xcor()
+    x += direction_x * 1.5  # Increase the speed of the ball
+    y = ball.ycor()
+    y += direction_y * 1.5  # Increase the speed of the ball
+    ball.goto(x, y)
+    # ball bounces of top and bottom
+    if ball.ycor() > 290 or ball.ycor() < -290:
+        direction_y *= -1
+
+    # ball goes past paddle, other player scores
+    if ball.xcor() > 300:
+        score1 += 1
+        ball.goto(0, 0)
+        direction_x *= -1
+    if ball.xcor() < -300:
+        score2 += 1
+        ball.goto(0, 0)
+        direction_x *= -1
+
+    # ball bounces of paddle
+    # Modify the move_ball function's collision detection:
+    if (340 > ball.xcor() > 280 and paddle1.ycor() + 50 > ball.ycor() > paddle1.ycor() - 50) or \
+            (-340 < ball.xcor() < -280 and paddle2.ycor() + 50 > ball.ycor() > paddle2.ycor() - 50):
+        direction_x *= -1
+
+    update_score()
+    screen.update()
 
 
 def computer_move_paddle(paddle):
@@ -101,10 +128,9 @@ screen.update()
 while True:
     screen.onkeypress(lambda: move_up(paddle2), "Up")
     screen.onkeypress(lambda: move_down(paddle2), "Down")
-    screen.update()
-    move_ball()
-    screen.update()
+    move_ball(ball, paddle1, paddle2)
     computer_move_paddle(paddle1)
     screen.update()
+
 screen.mainloop()
 screen.exitonclick()
