@@ -1,6 +1,11 @@
 
-#### Master `README.md`
+### Updated Master `README.md`
 
+You can add the new entry for the Pong Game in your master `README.md`:
+
+#### Updated Main `README.md`
+
+```markdown
 # Python Practice Assignments
 
 Welcome to the Python Practice Assignments repository. This repository is a collection of various Python projects, including practice assignments, games, scripts, utilities, websites, data science projects, and programs. Each project is organized into its own directory and contains all the necessary files to run and understand the project.
@@ -15,6 +20,7 @@ Welcome to the Python Practice Assignments repository. This repository is a coll
   - [Hirst Painting](#hirst-painting)
   - [Turtle Race](#turtle-race)
   - [Snake Game](#snake-game)
+  - [Pong Game](#pong-game)
   - [More Projects](#more-projects)
 
 ## About
@@ -30,8 +36,6 @@ This repository is designed to help track progress and showcase various Python p
   - `main.py`: The main script for the game.
   - `README.md`: Detailed information about the game.
 - **Project Directory:** [Higher Lower Game](higher-lower-game/)
-- **Screenshot:**
-  ![Higher Lower Game](screenshots/higher-lower-game.png)
 
 ### Coffee Machine
 
@@ -41,8 +45,6 @@ This repository is designed to help track progress and showcase various Python p
   - `menu.py`: Contains the resources used by the coffee machine.
   - `README.md`: Detailed information about the coffee machine project.
 - **Project Directory:** [Coffee Machine](coffee-machine/)
-- **Screenshot:**
-  ![Coffee Machine](screenshots/coffee-machine.png)
 
 ### Quiz Game
 
@@ -54,8 +56,6 @@ This repository is designed to help track progress and showcase various Python p
   - `data.py`: Fetches and processes the question data from the API.
   - `README.md`: Detailed information about the quiz game project.
 - **Project Directory:** [Quiz Game](quiz-game/)
-- **Screenshot:**
-  ![Quiz Game](screenshots/quiz-game.png)
 
 ### Hirst Painting
 
@@ -65,8 +65,6 @@ This repository is designed to help track progress and showcase various Python p
   - `hirst_painting.jpg`: The image from which colors are extracted.
   - `README.md`: Detailed information about the Hirst Painting project.
 - **Project Directory:** [Hirst Painting](hirst-painting/)
-- **Screenshot:**
-  ![Hirst Painting](screenshots/hirst-painting.png)
 
 ### Turtle Race
 
@@ -75,8 +73,6 @@ This repository is designed to help track progress and showcase various Python p
   - `main.py`: The main script that runs the turtle race.
   - `README.md`: Detailed information about the Turtle Race project.
 - **Project Directory:** [Turtle Race](turtle-race/)
-- **Screenshot:**
-  ![Turtle Race](screenshots/turtle-race.png)
 
 ### Snake Game
 
@@ -85,8 +81,14 @@ This repository is designed to help track progress and showcase various Python p
   - `main.py`: The main script that runs the Snake game.
   - `README.md`: Detailed information about the Snake Game project.
 - **Project Directory:** [Snake Game](snake-game/)
-- **Screenshot:**
-  ![Snake Game](screenshots/snake-game.png)
+
+### Pong Game
+
+- **Description:** A classic Pong game using the Turtle graphics library.
+- **Files:**
+  - `main.py`: The main script that runs the Pong game.
+  - `README.md`: Detailed information about the Pong Game project.
+- **Project Directory:** [Pong Game](pong-game/)
 
 ### More Projects
 

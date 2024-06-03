@@ -31,17 +31,18 @@ def create_paddle(paddle, x, y):
 
 def move_up(paddle):
     y = paddle.ycor()
-    y += 20
-    paddle.sety(y)
+    if y < 250:  # Check if the paddle is within the top boundary
+        y += 20
+        paddle.sety(y)
 
 
 def move_down(paddle):
     y = paddle.ycor()
-    y -= 20
-    paddle.sety(y)
+    if y > -250:  # Check if the paddle is within the bottom boundary
+        y -= 20
+        paddle.sety(y)
 
 
-# create scoreboard outside the function
 scoreboard = Turtle()
 scoreboard.color("white")
 scoreboard.penup()
@@ -98,11 +99,10 @@ def move_ball(ball, paddle1, paddle2):
         direction_x *= -1
 
     # ball bounces of paddle
-    # Modify the move_ball function's collision detection:
+    # Modify the move_ball function's collision detection as follows:
     if (340 > ball.xcor() > 280 and paddle1.ycor() + 50 > ball.ycor() > paddle1.ycor() - 50) or \
             (-340 < ball.xcor() < -280 and paddle2.ycor() + 50 > ball.ycor() > paddle2.ycor() - 50):
         direction_x *= -1
-
     update_score()
     screen.update()
 
