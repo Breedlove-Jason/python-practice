@@ -30,7 +30,7 @@ This repository is designed to help track progress and showcase various Python p
 ## Projects
 
 ### Higher Lower Game
-
+![Higher Lower Game](./screenshots/higher-lower-game.png)
 - **Description:** A simple game where the player guesses which of two entities has more followers.
 - **Files:**
   - `main.py`: The main script for the game.
@@ -47,7 +47,7 @@ This repository is designed to help track progress and showcase various Python p
 - **Project Directory:** [Coffee Machine](coffee-machine/)
 
 ### Quiz Game
-
+![Quiz Game](./screenshots/quiz-game.png)
 - **Description:** A trivia game that fetches questions from the Open Trivia Database API based on the user's chosen difficulty level.
 - **Files:**
   - `main.py`: The main script that runs the game.
@@ -57,8 +57,17 @@ This repository is designed to help track progress and showcase various Python p
   - `README.md`: Detailed information about the quiz game project.
 - **Project Directory:** [Quiz Game](quiz-game/)
 
-### Hirst Painting
+### Coffee Machine
+![Coffee Machine](./screenshots/coffee-machine.png)
+- **Description:** A simulation of a coffee machine that can make espresso, latte, and cappuccino.
+- **Files:**
+  - `main.py`: The main script for the coffee machine simulation.
+  - `menu.py`: Contains the resources used by the coffee machine.
+  - `README.md`: Detailed information about the coffee machine project.
+- **Project Directory:** [Coffee Machine](coffee-machine/)
 
+### Hirst Painting
+![Hirst Painting](./screenshots/hirst-painting.png)
 - **Description:** Uses the Turtle graphics library to create a painting inspired by Damien Hirst.
 - **Files:**
   - `main.py`: The main script that runs the painting program.
@@ -67,7 +76,7 @@ This repository is designed to help track progress and showcase various Python p
 - **Project Directory:** [Hirst Painting](hirst-painting/)
 
 ### Turtle Race
-
+![Turtle Race](./screenshots/turtle-race.png)
 - **Description:** A simple turtle race game using the Turtle graphics library.
 - **Files:**
   - `main.py`: The main script that runs the turtle race.
@@ -75,7 +84,7 @@ This repository is designed to help track progress and showcase various Python p
 - **Project Directory:** [Turtle Race](turtle-race/)
 
 ### Snake Game
-
+![Snake Game](./screenshots/snake-game.png)
 - **Description:** A classic Snake game using the Turtle graphics library.
 - **Files:**
   - `main.py`: The main script that runs the Snake game.
@@ -83,7 +92,13 @@ This repository is designed to help track progress and showcase various Python p
 - **Project Directory:** [Snake Game](snake-game/)
 
 ### Pong Game
-
+### Pong Game
+![Pong Game](./screenshots/pong-game.png)
+- **Description:** A classic Pong game using the Turtle graphics library.
+- **Files:**
+  - `main.py`: The main script that runs the Pong game.
+  - `README.md`: Detailed information about the Pong Game project.
+- **Project Directory:** [Pong Game](pong-game/)
 - **Description:** A classic Pong game using the Turtle graphics library.
 - **Files:**
   - `main.py`: The main script that runs the Pong game.
