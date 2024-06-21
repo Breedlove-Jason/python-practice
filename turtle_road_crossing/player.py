@@ -16,7 +16,8 @@ class Player:
         self.player.color("black")
         self.player.shape("turtle")
         self.player.penup()
-        self.player.goto(0, 0)
+        self.player.goto(0, -280)
+        self.player.setheading(90)
 
 player = Player()
 player.create_turtle()
