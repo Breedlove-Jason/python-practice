@@ -1,5 +1,6 @@
 import random
 from turtle import Turtle
+from player import Player
 
 NUMBER_OF_CARS = 5
 
@@ -24,8 +25,29 @@ def difficulty_level():
 
 class Cars:
     def __init__(self):
-        self.colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'black', 'silver', 'gold', 'cyan', 'magenta', 'brown', 'pink', 'gray', 'lime', 'olive', 'maroon', 'navy', 'teal', 'indigo']
-        self.car_positions = []
+        self.colors = [
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "orange",
+            "purple",
+            "black",
+            "silver",
+            "gold",
+            "cyan",
+            "magenta",
+            "brown",
+            "pink",
+            "gray",
+            "lime",
+            "olive",
+            "maroon",
+            "navy",
+            "teal",
+            "indigo",
+        ]
+        self.all_cars = []
 
     def get_color(self):
         return random.choice(self.colors)
@@ -38,8 +60,15 @@ class Cars:
         car.penup()
 
         new_position = (random.randint(-295, 295), random.randint(-295, 295))
-        while new_position in self.car_positions:
+        while new_position in [car.position() for car in self.all_cars]:
             new_position = (random.randint(-295, 295), random.randint(-295, 295))
-        self.car_positions.append(new_position)
         car.goto(new_position)
+        self.all_cars.append(car)
         return car
+
+    def collision(self, player):
+        for car in self.all_cars:
+            if player.turtle.distance(car) < 15:
+                print("collision")
+                return True
+        return False

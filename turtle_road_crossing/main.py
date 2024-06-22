@@ -10,11 +10,10 @@ class Main:
         self.screen.title("Turtle Crossing")
         self.screen.tracer(0)
         self.player = Player()
+        self.car_manager = Cars()
 
-        self.cars = []
         for _ in range(difficulty_level()):
-            car = Cars().draw_car()
-            self.cars.append(car)
+            self.car_manager.draw_car()
 
         self.screen.onkey(self.player.move_up, "Up")
         self.screen.listen()
@@ -23,10 +22,14 @@ class Main:
         self.screen.mainloop()
 
     def game_loop(self):
-        for car in self.cars:
+        for car in self.car_manager.all_cars:
             move_car(car)
+            if self.car_manager.collision(self.player):
+                print("collision")
+            else:
+                continue
         self.screen.update()
-        self.screen.ontimer(self.game_loop, 100)
+        self.screen.ontimer(self.game_loop, 1)
 
 
 if __name__ == "__main__":
