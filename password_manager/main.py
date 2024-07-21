@@ -45,12 +45,18 @@ def save_password():
         message=f"These are the details entered: \nEmail: {email}\nPassword: {password}\nIs it okay to save?",
     )
 
-    with open("data.txt", "a") as file:
-        file.write(f"{website} | {email} | {password}\n")
-
-    website_entry.delete(0, END)
-    password_entry.delete(0, END)
-    password_entry.delete(0, END)
+    try:
+        with open("data.txt", "a") as file:
+            file.write(f"{website} | {email} | {password}\n")
+    except FileNotFoundError:
+        with open("data.txt", "w") as file:
+            file.write(f"{website} | {email} | {password}\n")
+            print("File not found, created new file")
+    finally:
+        file.close()
+        website_entry.delete(0, END)
+        email_entry.delete(0, END)
+        password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
