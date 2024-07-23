@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
+import json
 
 
 def gen_password():
@@ -34,29 +35,34 @@ def save_password():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
+    new_data = {website: {"email": email, "password": password}}
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(
             title="Oops", message="Please don't leave any fields empty!"
         )
-        return
-    messagebox.askokcancel(
-        title=website,
-        message=f"These are the details entered: \nEmail: {email}\nPassword: {password}\nIs it okay to save?",
-    )
 
     try:
-        with open("data.txt", "a") as file:
-            file.write(f"{website} | {email} | {password}\n")
+        with open("data.json", "r") as file:
+            # json.dump(new_data, file, indent=4)
+            try:
+                # reading old data
+                data = json.load(file)
+                # updating old data with new data
+                data.update(new_data)
+                # data = json.load(file)
+                # print(data)
+            except json.decoder.JSONDecodeError:
+                data = {}
+        with open("data.json", "w") as file:
+            json.dump(new_data, file, indent=4)
     except FileNotFoundError:
-        with open("data.txt", "w") as file:
-            file.write(f"{website} | {email} | {password}\n")
-            print("File not found, created new file")
-    finally:
-        file.close()
-        website_entry.delete(0, END)
-        email_entry.delete(0, END)
-        password_entry.delete(0, END)
+        data = {}
+
+    # UI cleanup moved outside the try-except block.
+    website_entry.delete(0, END)
+    email_entry.delete(0, END)
+    password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
