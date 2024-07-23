@@ -1,6 +1,18 @@
 {
-    "TEST4": {
+    "TEEST": {
         "email": "jason@email.com",
-        "password": "6$$0l8wrvGmtkbO"
+        "password": "+o%(0(S42ncq1SZu"
+    },
+    "Amazon": {
+        "email": "jason@email.com",
+        "password": "zm#ej3Z%*s(V6wT4"
+    },
+    "Ebay": {
+        "email": "jason@email.com",
+        "password": "qR64taUd!O*7Vt"
+    },
+    "Wayfair": {
+        "email": "jason@email.com",
+        "password": "fO$%s*qo2YL53as5"
     }
 }
